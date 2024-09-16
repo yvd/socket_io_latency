@@ -7,3 +7,5 @@
 
 ## Usage
 `npm run test`
+
+![Pic](./resources/latency_socket_io.png)
