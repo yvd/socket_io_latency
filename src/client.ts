@@ -5,7 +5,7 @@ client.connect()
 client.on("latencyCheck", (callback) => {
   const timeToRespond = Math.random() * 10
   setTimeout(() => {
-    console.log(`waited for ${timeToRespond}`)
+    // console.log(`Client: waited for ${timeToRespond} to respond`)
     callback();
   }, timeToRespond)
 });

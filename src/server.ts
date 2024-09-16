@@ -1,7 +1,6 @@
 import { Server } from "socket.io";
 
 const io = new Server(3000);
-console.log(`staring server`)
 
 function round(num: number): number {
     return Math.round(num*100)/100

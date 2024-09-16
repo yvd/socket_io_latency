@@ -1,9 +1,9 @@
 # About
 1. Simple module for calculating running mean, variance and standard deviation of round trip time via a ping mechanism in socket io.
+2. Client randomly waits from 0-10 ms beforing responding.
 
-## Usage.
-1. npm i
-2. tsc
-3. Run server via `node dist/server.js`
-4. Run client via `node dist/client/js`
+## Build
+`npm run build`
 
+## Usage
+`npm run test`
