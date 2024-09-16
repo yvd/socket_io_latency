@@ -1,9 +1,12 @@
 import { Server } from "socket.io";
 
-const io = new Server(3000);
+const latencyCheckIntervalMS = 2000
+const port = 3000
 
-function round(num: number): number {
-    return Math.round(num*100)/100
+const io = new Server(port);
+
+function pp(num: number): string {
+    return (Math.round(num*100)/100).toString().padStart(4, '0')
 }
 
 io.on("connection", (socket) => {
@@ -22,9 +25,9 @@ io.on("connection", (socket) => {
             const mean = sumRTT/numPings
             const variance = (sumRTTSq/numPings) - (mean*mean)
             const standardDeviation = Math.sqrt(variance)
-            console.log(`new: ${duration} mean: ${round(mean)} variance: ${round(variance)} std: ${round(standardDeviation)}`);
+            console.log(`new: ${pp(duration)} mean: ${pp(mean)} std: ${pp(standardDeviation)}`);
         });
-      }, 5000);
+      }, latencyCheckIntervalMS);
     socket.on("disconnect", () => {
         console.info(`Client gone id: ${socket.id}`);
         clearInterval(x)
